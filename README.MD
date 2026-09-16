@@ -8,6 +8,7 @@ Projeto de testes automatizados para a API REST **JSONPlaceholder**, utilizando 
 
 * Python
 * Pytest
+* Pytest HTML
 * Requests
 
 ## Execução
@@ -15,14 +16,18 @@ Projeto de testes automatizados para a API REST **JSONPlaceholder**, utilizando 
 Instale as dependências:
 
 ```bash
-pip install pytest requests
+pip install -r requirements.txt
 ```
 
-Execute os testes com:
+Execute os testes e gere o relatório HTML com:
 
 ```bash
 pytest
 ```
+
+Ao final da execução, o relatório autocontido estará disponível em
+`reports/report.html`. Ele pode ser aberto diretamente em qualquer navegador e
+é atualizado a cada nova execução dos testes.
 
 ## Casos de Teste
 
