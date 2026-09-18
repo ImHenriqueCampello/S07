@@ -266,3 +266,67 @@ def test_tc_020_json_malformado(base_url):
     )
 
     assert response.status_code == 500
+
+
+def test_tc_021_excluir_post_existente(base_url):
+    response = requests.delete(f"{base_url}/posts/1")
+
+    assert response.status_code == 200
+    assert response.json() == {}
+
+
+def test_tc_022_buscar_album_existente(base_url):
+    response = requests.get(f"{base_url}/albums/1")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["id"] == 1
+    assert "title" in data
+    assert "userId" in data
+
+
+def test_tc_023_filtrar_tarefas_concluidas(base_url):
+    response = requests.get(
+        f"{base_url}/todos",
+        params={"completed": "true"}
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert len(data) > 0
+
+    for tarefa in data:
+        assert tarefa["completed"] is True
+
+
+def test_tc_024_filtrar_comentarios_por_post(base_url):
+    response = requests.get(
+        f"{base_url}/comments",
+        params={"postId": 1}
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert len(data) > 0
+
+    for comentario in data:
+        assert comentario["postId"] == 1
+
+
+def test_tc_025_buscar_albuns_usuario(base_url):
+    response = requests.get(f"{base_url}/users/1/albums")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert len(data) > 0
+
+    for album in data:
+        assert album["userId"] == 1
