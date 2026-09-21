@@ -6,10 +6,10 @@ Projeto de testes automatizados para a API REST **JSONPlaceholder**, utilizando 
 
 ## Tecnologias
 
-* Python
-* Pytest
-* Pytest HTML
-* Requests
+- Python
+- Pytest
+- Pytest HTML
+- Requests
 
 ## Execução
 
@@ -31,23 +31,38 @@ Ao final da execução, o relatório autocontido estará disponível em
 
 ## Casos de Teste
 
-A suíte contém 10/20 casos de teste:
+A suíte contém 25 casos de teste:
 
 ### Dados válidos
 
-* **TC-001** — Buscar post existente
-* **TC-002** — Buscar usuário existente
-* **TC-003** — Listar posts
-* **TC-004** — Filtrar posts por usuário
-* **TC-005** — Buscar comentários de um post
+- **TC-001** — Buscar post existente
+- **TC-002** — Buscar usuário existente
+- **TC-003** — Listar posts
+- **TC-004** — Filtrar posts por usuário
+- **TC-005** — Buscar comentários de um post
+- **TC-011** — Criar novo post
+- **TC-012** — Atualizar completamente um post existente
+- **TC-013** — Atualizar parcialmente um post
+- **TC-014** — Buscar fotos de um álbum
+- **TC-015** — Buscar tarefas de um usuário
+- **TC-021** — Excluir post existente
+- **TC-022** — Buscar álbum existente
+- **TC-023** — Filtrar tarefas concluídas
+- **TC-024** — Filtrar comentários por post
+- **TC-025** — Buscar álbuns de um usuário
 
 ### Dados inválidos / inoportunos
 
-* **TC-006** — Buscar post inexistente
-* **TC-007** — Buscar usuário inexistente
-* **TC-008** — Buscar post utilizando ID textual
-* **TC-009** — Buscar post utilizando ID negativo
-* **TC-010** — Acessar endpoint inexistente
+- **TC-006** — Buscar post inexistente
+- **TC-007** — Buscar usuário inexistente
+- **TC-008** — Buscar post utilizando ID textual
+- **TC-009** — Buscar post utilizando ID negativo
+- **TC-010** — Acessar endpoint inexistente
+- **TC-016** — Tentar criar recurso diretamente em ID existente
+- **TC-017** — Atualizar post sem informar o ID do recurso
+- **TC-018** — Atualizar parcialmente um post sem informar o ID
+- **TC-019** — Excluir post sem informar o ID
+- **TC-020** — Enviar JSON malformado
 
 ## API utilizada
 
@@ -57,4 +72,8 @@ Os testes são executados utilizando a API pública:
 
 ## Uso de IA
 
-Foi utilizada Inteligência Artificial como apoio para gerar README, explicar como a API funciona e auxiliar com idéias de testes.
+Foi utilizada Inteligência Artificial como apoio para:
+
+- Gerar README.md e plano de testes;
+- Auxiliar no entendimento da estrutura e funcionamento da API utilizada;
+- Ideias de testes
