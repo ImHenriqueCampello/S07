@@ -268,13 +268,15 @@ def test_tc_020_json_malformado(base_url):
     assert response.status_code == 500
 
 
+# TC-021 | DELETE | Excluir post existente
 def test_tc_021_excluir_post_existente(base_url):
-    response = requests.delete(f"{base_url}/posts/1")
+    response = requests.delete(f"{base_url}/posts/2")
 
     assert response.status_code == 200
     assert response.json() == {}
 
 
+# TC-022 | GET | Buscar álbum existente
 def test_tc_022_buscar_album_existente(base_url):
     response = requests.get(f"{base_url}/albums/1")
 
@@ -287,6 +289,7 @@ def test_tc_022_buscar_album_existente(base_url):
     assert "userId" in data
 
 
+# TC-023 | GET | Filtrar tarefas concluídas
 def test_tc_023_filtrar_tarefas_concluidas(base_url):
     response = requests.get(
         f"{base_url}/todos",
@@ -303,6 +306,7 @@ def test_tc_023_filtrar_tarefas_concluidas(base_url):
         assert tarefa["completed"] is True
 
 
+# TC-024 | GET | Filtrar comentários por post
 def test_tc_024_filtrar_comentarios_por_post(base_url):
     response = requests.get(
         f"{base_url}/comments",
@@ -319,6 +323,7 @@ def test_tc_024_filtrar_comentarios_por_post(base_url):
         assert comentario["postId"] == 1
 
 
+# TC-025 | GET | Buscar álbuns de um usuário
 def test_tc_025_buscar_albuns_usuario(base_url):
     response = requests.get(f"{base_url}/users/1/albums")
 
